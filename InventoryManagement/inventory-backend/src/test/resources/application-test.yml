@@ -1,0 +1,35 @@
+server:
+  port: 0
+  servlet:
+    context-path: /api/v1
+
+spring:
+  application:
+    name: smart-inventory-backend-test
+
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;MODE=MySQL;NON_KEYWORDS=USER,KEY,VALUE
+    username: sa
+    password: ""
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+
+app:
+  jwt:
+    secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
+    expiration-ms: 3600000
+  cors:
+    allowed-origins: "*"
+
+logging:
+  level:
+    root: WARN
+    com.inventory: INFO
